@@ -1,0 +1,14 @@
+service: statuscheck
+
+provider:
+  name: aws
+  runtime: go1.x
+
+package:
+  artifact: deployment.zip
+
+functions:
+  lambdacode:
+    handler: main
+    events:
+      - schedule: rate(5 minutes)
